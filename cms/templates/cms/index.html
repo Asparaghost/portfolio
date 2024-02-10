@@ -74,14 +74,17 @@
                 <img src="{% static 'images/me-glow.png' %}" alt="Me" id="me">
             </div>
         </section>
-        <section class="proj">
-            <div id="my-projects">
+        <hr/>
+        <section id="my-projects">
                 <div class="carousel">
                     <img src="{% static 'images/samp1.jpg' %}" alt="Image 1">
                     <img src="{% static 'images/samp2.jpg' %}" alt="Image 2">
                     <img src="{% static 'images/samp3.jpg' %}" alt="Image 3">
                 </div>
-            </div>
+                <div class="proj-desc">
+                    <h2>My<br/><span>PROJECTS</span></h2>
+                    <a href="{% url 'projects' %}"><span>View All</span></a>
+                </div>
         </section>
 
         <script>

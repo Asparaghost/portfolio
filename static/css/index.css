@@ -161,6 +161,7 @@ header .navbar {
     margin: 0 auto;
     padding-top: 20px;
 }
+
 header .navbar #logo {
     height: 40px;
     width: auto;
@@ -178,20 +179,21 @@ header .navbar #logo {
     text-decoration: none;
     transition: 0.2s ease;
 }
+
 .navbar a:hover {
     color: #01c38d;
 }
 
 .navbar .user-choice {
     border: 1px solid #ffffff;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     padding: 3px 8px;
 }
 
 .navbar .user-choice:hover {
     border: 1px solid #01c38d;
     color: #fff;
-    border-radius: 8px;
+    /* border-radius: 8px; */
     padding: 3px 8px;
     background-color: #01c38d;
 }
@@ -240,12 +242,6 @@ section {
     align-items: center;
 }
 
-/* section .forte{
-    height: 100vh;
-    width: 100vw;
-    background-color: #191e29;
-} */
-
 #about-me {
     padding-top: 2rem;
     font-family: 'Cabin', sans-serif;
@@ -293,23 +289,102 @@ section {
     height: auto;
 }
 
-.proj {
+#my-projects {
     background: linear-gradient(0deg, #191e29 0%, #191e29 35%, #0a253f 100%);
 }
 
+/* #my-projects h1 {
+    position: absolute;
+    text-align: center;
+    color: #ffffff;
+} */
+
 .carousel {
-    position: relative;
-    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
     height: 100vh;
+    width: 50vw;
     overflow: hidden;
 }
 
 .carousel img {
     position: absolute;
-    width: auto;
-    height: 70%;
+    /*width: auto;
+    height: 50%; */
+    width: 100%;
     object-fit: cover;
-    transition: opacity 3s ease-in-out;
+    transition: opacity 2s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 0 70px 2px #01c38ca8;
+}
+
+.proj-desc {
+    font-family: 'Cabin', sans-serif;
+}
+
+.proj-desc a {
+    margin-top: 20px;
+}
+
+.proj-desc h2{
+    text-align: right;
+    color: #01c38d;
+    font-size: 2rem;
+}
+
+.proj-desc h2 span{
+    text-align: right;
+    color: #ffffff;
+    font-size: 4rem;
+}
+
+.proj-desc a {
+    display: block;
+    font-family: 'Cabin', sans-serif;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #01c38d;
+    border: 2px solid #ffffff;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+}
+
+.proj-desc a span{
+    position: relative;
+    z-index: 2;
+}
+
+.proj-desc a:after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #01c38d;
+    transition: all .35s;
+}
+
+.proj-desc a:hover{
+    color: #fff;
+}
+
+.proj-desc a:hover:after{
+    width: 100%;
+}
+
+hr {
+    margin: 0 auto;
+    border-bottom: 1px solid #01c38d;
+    width: 80vw;
+    opacity: 1;
 }
 
 #close-menu-btn {
