@@ -1,8 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.template.loader import get_template
+from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request, "cms/index.html")
+    projects = Project.objects.all()  
+    context = {
+        'projects':projects
+    }
+    return render(request, "cms/index.html", context)
 
 def projects(request):
-    return render(request, "cms/projects.html")
+    projects = Project.objects.all()  
+    context = {
+        'projects':projects
+    }
+    return render(request, "cms/projects.html", context)
