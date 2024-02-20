@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link href="{% static 'images/LF_Logo.png' %}" rel="icon">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <title>Portfolio</title>
+    </head>
+
+    <body style="background-color: #0a253f;">
+        <header id="navbar">
+            <nav class="navbar">
+                <a href="{% url 'index' %}"><i class="fas fa-arrow-left"></i><img src="{% static 'images/LF-long_Logo.png' %}" alt="logo" id="logo"/></a>
+            </nav>
+        </header>
+        <div class="gradient-bg">
+            <svg xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                </defs>
+            </svg>
+            <div class="gradients-container">
+                <div class="g1"></div>
+                <div class="g2"></div>
+                <div class="g3"></div>
+                <div class="interactive"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="wrapper">
+                <form method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    <h2>LOGIN</h2>
+
+                    {% if form.non_field_errors %}
+                        <ul class='form-errors' style="color: red;">
+                        {% for error in form.non_field_errors %}
+                            <h3 style="font-size: small; margin-bottom: -20px;">{{ error }}</h3>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                        <div class="input-field">
+                            <label>Username</label>
+                            <input type="text" name="username" readonly onfocus="this.removeAttribute('readonly');" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" name="password" readonly onfocus="this.removeAttribute('readonly');" required>
+                        </div>
+                        <div class="forget">
+                            </label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <button type="submit">Login</button>
+                        <!-- <div class="register">
+                            <p>Don't have an account? <a href="#">Signup</a></p>
+                        </div> -->
+                </form>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var interBubble = document.querySelector('.interactive');
+                var curX = 0;
+                var curY = 0;
+                var tgX = 0;
+                var tgY = 0;
+                function move() {
+                    curX += (tgX - curX) / 10;
+                    curY += (tgY - curY) / 10;
+                    interBubble.style.transform = "translate(" + Math.round(curX) + "px, " + Math.round(curY) + "px)";
+                    requestAnimationFrame(move);
+                }
+                window.addEventListener('mousemove', function(event) {
+                    tgX = event.clientX;
+                    tgY = event.clientY;
+                });
+                move();
+            });
+        </script>
+    </body>
+</html>

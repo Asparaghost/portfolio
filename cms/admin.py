@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Project)
 admin.site.register(Language)
 admin.site.register(ProjectImage)
+admin.site.register(Information)

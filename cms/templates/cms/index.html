@@ -22,7 +22,7 @@
                     <li><a href="#my-projects">Projects</a></li>
                     <li><a href="#">Resume</a></li>
                     <!-- <li><a href="#" class="user-choice">Signup</a></li> -->
-                    <li><a href="login.html" class="user-choice">Login</a></li>
+                    <li><a href="{% url 'login' %}" class="user-choice">Login</a></li>
                 </ul>
                 <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
             </nav>
@@ -55,21 +55,18 @@
             </div>
         <section id="about-section">
             <div id="about-me">
+                {% for info in informations %}
                 <h2>Hi! I'm</h2>
-                <h1>FIRSTNAME<br/><span>LASTNAME</span></h1>
+                <h1>{{ info.first_name }} {{ info.middle_initial }}<br/><span>{{ info.last_name }}</span></h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna 
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit 
-                    esse cillum dolore eu fugiat nulla pariatur.
+                    {{ info.description }}
                 </p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#"><i class="fab fa-github-square"></i></a>
-                    <a href="#"><i class="fas fa-envelope-square"></i></a>
+                    <a href="{{ info.facebook_url }}" target=”_blank”><i class="fab fa-facebook-square"></i></a>
+                    <a href="{{ info.github_url }}" target=”_blank”><i class="fab fa-github-square"></i></a>
+                    <a title="{{ info.email_add }}"><i class="fas fa-envelope-square"></i></a>
                 </div>
+                {% endfor %}
             </div>
             <div class="image-me">
                 <img src="{% static 'images/me-glow.png' %}" alt="Me" id="me">
@@ -79,14 +76,14 @@
         <section id="my-projects">
                 <div class="carousel">
                     {% for proj in projects %}
-                        {% if proj.proj_img.all.first %}
+                        {% if proj.proj_img.all.first and proj.proj_type == 'Application' %}
                         <img src="{{ proj.proj_img.all.first.proj_img.url }}" alt="Project Image">
                         {% endif %}
                     {% endfor %}       
                 </div>
                 <div class="proj-desc">
                     <h2>My<br/><span>PROJECTS</span></h2>
-                    <a href="{% url 'projects' %}"><span>View All</span></a>
+                    <a href="{% url 'project_apps' %}"><span>View All</span></a>
                 </div>
         </section>
 
