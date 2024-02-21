@@ -141,6 +141,10 @@ nav.open ~ .overlay {
 	pointer-events: auto;
 }
 
+.container {
+	margin-top: 70px;
+}
+
 /* .bottom-content .list {
 	display: flex;
 	align-items: center;

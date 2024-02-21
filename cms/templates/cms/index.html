@@ -87,62 +87,9 @@
                 </div>
         </section>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var interBubble = document.querySelector('.interactive');
-                var curX = 0;
-                var curY = 0;
-                var tgX = 0;
-                var tgY = 0;
-                function move() {
-                    curX += (tgX - curX) / 20;
-                    curY += (tgY - curY) / 20;
-                    interBubble.style.transform = "translate(" + Math.round(curX) + "px, " + Math.round(curY) + "px)";
-                    requestAnimationFrame(move);
-                }
-                window.addEventListener('mousemove', function(event) {
-                    tgX = event.clientX;
-                    tgY = event.clientY;
-                });
-                move();
-            });
-        </script>
-        <script>
-            const header = document.querySelector("header");
-            const hamburgerBtn = document.querySelector("#hamburger-btn");
-            const closeMenuBtn = document.querySelector("#close-menu-btn");
-                hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
-                closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
-        </script>
-        <script>
-            window.addEventListener('scroll', function() {
-                var navbar = document.getElementById('navbar');
-                if (window.scrollY > 0) {
-                    navbar.style.backgroundColor = '#191e29'; 
-                } else {
-                    navbar.style.backgroundColor = 'transparent'; 
-                }
-            });
-        </script>
-        <script>
-            const carousel = document.querySelector('.carousel');
-            const images = document.querySelectorAll('.carousel img');
-            let index = 0;
-            function showImage(index) {
-            images.forEach((image, i) => {
-                if (i === index) {
-                image.style.opacity = '1';
-                } else {
-                image.style.opacity = '0';
-                }
-            });
-            }
-            function nextImage() {
-            index = (index + 1) % images.length;
-            showImage(index);
-            }
-            showImage(index);
-            setInterval(nextImage, 3000); 
-        </script>
+        <script type="text/javascript" src="{% static 'javascript/main-gradient.js' %}"></script>
+        <script type="text/javascript" src="{% static 'javascript/hamburger.js' %}"></script>
+        <script type="text/javascript" src="{% static 'javascript/navbar.js' %}"></script>
+        <script type="text/javascript" src="{% static 'javascript/carousel.js' %}"></script>
     </body>
 </html>
