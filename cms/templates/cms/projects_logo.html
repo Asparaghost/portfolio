@@ -43,7 +43,7 @@
             <div class="container">
                 {% for proj in projects %}
                     <div class="cards">
-                        <a href="{{ proj.proj_url}}">
+                        <a href="{% url 'details' proj.proj_id %}">
                             {% if proj.proj_img.all.first %}
                             <img class="image" src="{{ proj.proj_img.all.first.proj_img.url }}" alt="Project Image"/>
                             {% endif %}

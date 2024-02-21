@@ -37,8 +37,18 @@ def project_logos(request):
     return render(request, "cms/projects_logo.html", context)
 
 
+def details(request, proj_id):
+    project = Project.objects.get(proj_id=proj_id)
+    project_lang = project.proj_lang.all()
+    context = {
+        'project' : project,
+        'project_lang' : project_lang,
+    }
+    return render(request, "cms/details.html", context)
+
+
 def login(request):
     return render(request, "cms/login.html")
 
 def sample(request):
-    return render(request, "cms/sample.html")
+    return render(request, "cms/admin/dashboard.html")

@@ -10,6 +10,8 @@ urlpatterns = [
     path('project_logos', views.project_logos, name='project_logos'),
 
     path('login',authentication_views.LoginView.as_view(template_name='cms/login.html'), name='login'),
+    path('logout',authentication_views.LogoutView.as_view(template_name='cms/login.html'), name='logout'),
 
+    path('project/<str:proj_id>/',views.details, name='details'),   
     path('sample', views.sample, name='sample'),
 ]
