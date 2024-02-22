@@ -13,5 +13,6 @@ urlpatterns = [
     path('logout',authentication_views.LogoutView.as_view(template_name='cms/login.html'), name='logout'),
 
     path('project/<str:proj_id>/',views.details, name='details'),   
-    path('sample', views.sample, name='sample'),
+    path('nav/',views.nav,name='nav'),
+    path('dashboard', views.dashboard, name='dashboard'),
 ]

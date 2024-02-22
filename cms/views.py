@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .models import *
 
@@ -50,5 +51,13 @@ def details(request, proj_id):
 def login(request):
     return render(request, "cms/login.html")
 
-def sample(request):
-    return render(request, "cms/admin/dashboard.html")
+@login_required
+def nav(request):
+    return render(request, "cms/admin/main.html")
+
+def dashboard(request):
+    projects = Project.objects.all()  
+    context = {
+        'projects':projects,
+    }
+    return render(request, "cms/admin/dashboard.html", context)
