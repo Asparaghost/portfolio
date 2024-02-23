@@ -1,7 +1,17 @@
 from django import forms
+from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
+
+class LanguageForm(forms.ModelForm):
+    class Meta:  
+        model = Language 
+        exclude = ('created_by',)
+        fields = '__all__'
+        labels = {
+            'lang_name': 'Name',
+        }
 
 class LoginForm(forms.Form):
     username = forms.CharField(

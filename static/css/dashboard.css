@@ -7,15 +7,20 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #ffffff!important;
+}
+
 .container-fluid {
-    margin-top: 90px;
+    margin-top: 55px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: flex-start;
 }
 
 section {
-    background-color: #ffffff;
+    background-color: #132d46;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -26,6 +31,55 @@ section {
     width: 60vw;
     align-items: center;
 }
+
+.projects .title, .languages .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between ;
+    align-items: center;
+}
+
+.title {
+    color: #ffffff;
+}
+
+.title a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 4px 10px;
+    background-color: #01c38d;
+}
+
+table {
+    margin-top: 12px;
+    background-color: #233f5a;
+}
+
+table thead{
+    color: #ffffff;
+}
+
+table tbody{
+    color: #01c38d;
+}
+
+table tbody tr td a i{
+    color: white;
+    padding: 4px 6px;
+    background-color: #ffffff;
+    
+}
+
+table tbody tr td a {
+    text-decoration: none;
+    color: #01c38d;
+}
+
+table tbody tr td a i:hover {
+    color: #ffffff!important;
+    background-color: #01c38d;
+}
+
 
 .languages {
     padding: 20px;

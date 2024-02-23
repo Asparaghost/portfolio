@@ -13,6 +13,9 @@ urlpatterns = [
     path('logout',authentication_views.LogoutView.as_view(template_name='cms/login.html'), name='logout'),
 
     path('project/<str:proj_id>/',views.details, name='details'),   
-    path('nav/',views.nav,name='nav'),
+    path('dashboard/add_Language/',views.add_lang, name='add_lang'),
+    path('dashboard/edit/<str:lang_id>/', views.edit_lang, name='edit_lang'), 
+    path('dashboard/delete/<str:lang_id>/', views.delete_lang, name='delete_lang'), 
+    
     path('dashboard', views.dashboard, name='dashboard'),
 ]
