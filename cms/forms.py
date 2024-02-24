@@ -4,6 +4,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
+class ProjectForm(forms.ModelForm):
+    class Meta:  
+        model = Project 
+        exclude = ('created_by',)
+        fields = '__all__'
+        labels = {
+            'proj_name': 'Name',
+            'proj_type': 'Type',
+            'proj_img': 'Image/s',
+            'proj_desc': 'Description',
+            'proj_lang': 'Languages',
+            'proj_url': 'URL',
+        }
+
+
 class LanguageForm(forms.ModelForm):
     class Meta:  
         model = Language 
@@ -13,13 +28,10 @@ class LanguageForm(forms.ModelForm):
             'lang_name': 'Name',
         }
 
+
 class LoginForm(forms.Form):
-    username = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
+    username = forms.CharField( widget=forms.TextInput( attrs={
                 "class": "form-control", "placeholder":"Username"}))
 
-    password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
+    password = forms.CharField( widget=forms.PasswordInput( attrs={
                 "class": "form-control", "placeholder":"Password"}))

@@ -13,7 +13,7 @@
                 <div class="projects">
                     <div class="title">
                         <h3>Projects</h3>
-                        <a href="#">Add Project</a>
+                        <a href="{% url 'add_proj' %}">Add Project</a>
                     </div>
                     <table class="table table-bordered">
                         <thead>
@@ -38,7 +38,7 @@
 
                             <td style="text-align: center;">
                                 <a href="#"><i class="fas fa-edit" style="color: #e1a900;"></i>&nbsp;</a>
-                                <a href="#"><i class="fas fa-trash-alt" style="color: #d02525;"></i></a>
+                                <a href="{% url 'delete_proj' proj.proj_id %}" onclick="return confirm('Are you sure you want to delete this?')"><i class="fas fa-trash-alt" style="color: #d02525;"></i></a>
                             </td>
                         </tr>
                         </tbody>
