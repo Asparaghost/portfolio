@@ -1,0 +1,62 @@
+{%  extends 'cms/admin/main.html' %}
+{% load static %}
+
+{% block styles %}
+{{block.super}}
+<link href="{% static 'css/user.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+        <div class="container-fluid">
+            <section>
+                <div class="account">
+                    <div class="title">
+                        <h3>Account <span>Information</span></h3>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email Address</th>
+                            <th scope="col">Resume</th>
+                            <th scope="col">User Type</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">{{ user.username }}</th>
+                            <td>{{ user.email }}</td>
+                            <td>Resume &nbsp;<a href=""><i class="fas fa-pen-fancy"></i></a></td>
+                            <td>{% if user.is_superuser %}Administrator{% else %}Unavailable{% endif %}</td>
+                            <td>{% if user.is_active %}
+                                <i class="fas fa-circle" style="color: green; font-size: 15px;"></i>&nbsp;Active
+                                {% else %}
+                                <i class="fas fa-circle" style="color: red; font-size: 15px;"></i>&nbsp;Inctive
+                                {% endif %}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <div class="personal">
+                    <div class="title">
+                        <h3>Personal <span>Information</span></h3>
+                        <a href="{% url 'add_lang' %}">Edit <i class="fas fa-pen-fancy"></i></a>
+                    </div>
+                    <div class="content">
+                        {% for info in personal %}
+                        <h3>{{ info.last_name }}, {{ info.first_name }} {{ info.middle_initial }}</h3>
+                        <p>{{ info.description }}</p><br/>
+                        <h5><span>Facebook Url:</span> {{ info.facebook_url }}</h5>
+                        <h5><span>Github Url:</span> {{ info.github_url }}</h5>
+                        <h5><span>Email Address:</span> {{ info.email_add }}</h5>
+                    {% endfor %}
+                    </div>
+                </div>
+            </section>
+        </div>
+
+{% endblock content %}

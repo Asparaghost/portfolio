@@ -9,27 +9,62 @@
 
 body {
     background-color: #ffffff!important;
+    overflow-x: hidden;
 }
 
 .container-fluid {
     margin-top: 55px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    /* align-items: flex-start; */
 }
 
 section {
+    margin-bottom: 30px;
     background-color: #132d46;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.projects {
+section:nth-child(2) {
+    margin-top: 30px;
+}
+
+.account {
     padding: 20px;
     flex: 2;
-    width: 60vw;
     align-items: center;
+}
+
+.personal {
+    padding: 20px;
+    flex: 1;
+    color: #ffffff;
+}
+
+.personal .content {
+    padding: 20px 40px;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+.personal .content h3 {
+    font-size: 22px;
+}
+
+.personal .content p {
+    font-size: 16px;
+    padding-top: 20px;
+}
+
+.personal .content h5 {
+    /* padding-top: 10px; */
+    font-size: 15px;
+}
+
+.personal .content h5 span {
+    color: #01c38d;
 }
 
 .title {
@@ -40,16 +75,26 @@ section {
     color: #ffffff;
 }
 
+.title span{
+    color: #01c38d
+}
+
 .title a {
+    color: #01c38d;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.title a:hover {
     color: #ffffff;
     text-decoration: none;
-    padding: 4px 10px;
-    background-color: #01c38d;
+    font-weight: 700;
 }
 
 table {
     margin-top: 12px;
     background-color: #233f5a;
+    width: 70vw;
 }
 
 table thead{
@@ -60,26 +105,13 @@ table tbody{
     color: #01c38d;
 }
 
-table tbody tr td a i{
-    color: white;
-    padding: 4px 6px;
-    background-color: #ffffff;
-    
-}
-
 table tbody tr td a {
-    text-decoration: none;
     color: #01c38d;
 }
 
+
 table tbody tr td a i:hover {
-    color: #ffffff!important;
-    background-color: #01c38d;
+    color: #ffffff;
 }
 
 
-.languages {
-    padding: 20px;
-    flex: 1;
-    width: 30vw;
-}

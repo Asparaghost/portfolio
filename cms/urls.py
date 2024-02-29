@@ -22,4 +22,5 @@ urlpatterns = [
     path('dashboard/delete/<str:lang_id>/', views.delete_lang, name='delete_lang'), 
     
     path('dashboard', views.dashboard, name='dashboard'),
+    path('user', views.user, name='user'),
 ]

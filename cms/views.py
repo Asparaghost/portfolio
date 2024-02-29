@@ -61,6 +61,12 @@ def dashboard(request):
     }
     return render(request, "cms/admin/dashboard.html", context)
 
+def user(request):
+    personal = Information.objects.all()  
+    context = {
+        'personal':personal,
+    }
+    return render(request, "cms/admin/user.html", context)
 
 def add_proj(request):
     if request.method == "POST":  
