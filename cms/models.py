@@ -54,3 +54,6 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     proj_img = models.ImageField(upload_to='proj_images/')
+
+    def __str__(self):
+        return self.proj_img.name

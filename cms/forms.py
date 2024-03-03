@@ -19,6 +19,16 @@ class ProjectForm(forms.ModelForm):
         }
 
 
+
+class ProjectImageForm(forms.ModelForm):
+    class Meta:  
+        model = ProjectImage 
+        fields = '__all__'
+        labels = {
+            'proj_img': 'Project Image',
+        }
+
+
 class LanguageForm(forms.ModelForm):
     class Meta:  
         model = Language 

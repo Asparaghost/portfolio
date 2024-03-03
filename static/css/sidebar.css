@@ -68,6 +68,7 @@ nav .sidebar {
 
 h4 {
 	position: absolute;
+	margin: 0 auto;
 	right: 40px;
 	color: white;
 	font-weight: 300;

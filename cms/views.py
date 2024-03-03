@@ -84,6 +84,24 @@ def add_proj(request):
         form = ProjectForm()  
     return render(request,'cms/admin/add_proj.html',{'form':form}) 
 
+
+def add_img(request):
+    if request.method == "POST":  
+        form = ProjectImageForm(request.POST, request.FILES)  
+        if form.is_valid():  
+            try:
+                images = request.FILES.getlist('proj_img')
+                for image in images:
+                    project_image = ProjectImage(proj_img=image)
+                    project_image.save()
+                return redirect('add_proj')  
+            except:  
+                pass
+    else:  
+        form = ProjectImageForm()  
+    return render(request,'cms/admin/add_image.html',{'form':form})
+
+
 def delete_proj(request, proj_id):  
     project = Project.objects.get(proj_id=proj_id)  
     project.delete()  
