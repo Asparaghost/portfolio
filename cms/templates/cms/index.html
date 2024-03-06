@@ -22,7 +22,11 @@
                     <li><a href="#my-projects">Projects</a></li>
                     <li><a href="#">Resume</a></li>
                     <!-- <li><a href="#" class="user-choice">Signup</a></li> -->
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}" class="user-choice">Dashboard</a></li>
+                    {%else%}
                     <li><a href="{% url 'login' %}" class="user-choice">Login</a></li>
+                    {% endif %}
                 </ul>
                 <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
             </nav>
