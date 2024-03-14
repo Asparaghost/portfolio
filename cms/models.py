@@ -12,6 +12,9 @@ class Information(models.Model):
     email_add = models.CharField(max_length=30, blank=True, null=True)
     description = models.TextField()
 
+    class Meta:
+        db_table = "personal_information"
+
 class Language(models.Model):
     lang_id = models.AutoField(primary_key=True)
     lang_name = models.CharField(max_length=100)
@@ -57,3 +60,6 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return self.proj_img.name
+    
+    class Meta:
+        db_table = "project_images"
