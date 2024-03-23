@@ -12,15 +12,22 @@
             <section id="left">
                 <!-- <h2>Add<br/> Project Images</h2>
                 <h5>PORTFOLIO</h5> -->
-                <img src="{% static 'images/pattern1.jpg' %}" alt="Background">
+                <img src="{% static 'images/splatter.jpg' %}" alt="Background">
             </section>
             <section id="right">
                 <form method="POST" class="add_form" enctype="multipart/form-data">
                     {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="id_proj_img" class="form-label">Project Images:</label>
+                        <input type="file" class="form-control" name="proj_img" id="proj_img" accept="image/*" required="" multiple>
+                    </div>
                             
-                    <label for="id_proj_img">Project Image:</label>
-                    <input type="file" name="proj_img" multiple accept="image/*" required="" id="proj_img">
-                <input type="submit" name="Save Data" value="Save Data" class="btn">
+                    <!-- <label for="id_proj_img">Project Image:</label>
+                    <input type="file" name="proj_img" multiple accept="image/*" required="" id="proj_img"> -->
+                    <div class="submit-button">
+                    <input type="submit" name="Save Data" value="Save Data" class="btn">
+                    </div>
                 </form>
             </section>
         </div>

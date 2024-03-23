@@ -387,6 +387,15 @@ hr {
     opacity: 1;
 }
 
+footer {
+    color: #fff;
+    background-color: #0a253f;
+    text-align: center;
+    font-family: 'Cabin', sans-serif;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
 #close-menu-btn {
     position: absolute;
     right: 20px;

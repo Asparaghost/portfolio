@@ -52,6 +52,7 @@ def details(request, proj_id):
 def login(request):
     return render(request, "cms/login.html")
 
+@login_required
 def dashboard(request):
     projects = Project.objects.all()  
     languages = Language.objects.all()

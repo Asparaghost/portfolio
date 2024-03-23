@@ -9,13 +9,69 @@
 {% block content %}
 
     <div class="container-fluid">
-        <form method="POST" class="add_form" enctype="multipart/form-data">
-            {% csrf_token %}
+        <!-- <form method="POST" class="add_form" enctype="multipart/form-data">
+            {% csrf_token %} -->
                 
-            {{form.as_p}}
+            <!-- {{form.as_p}} -->
 
-            <input type="submit" name="Save Data" value="Save Data" class="btn">
-        </form>
+    <form method="POST" class="add_form" enctype="multipart/form-data" style="margin-top: 100px!important;">
+        <input type="hidden" name="csrfmiddlewaretoken" value="jNEEauYgM7n2UmUUhGAU4UvEzXvqv01knZhksz4CLkXsZaWLc4TjlqlQafbcStpX">
+
+        <section id="form-fields">
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="id_proj_name">Name:</label>
+                    <input type="text" class="form-control" name="proj_name" maxlength="100" required="" id="id_proj_name">
+                </div> 
+
+                <div class="form-group col-md-6">
+                    <label for="id_proj_type">Type:</label>
+                    <select class="form-control" name="proj_type" id="id_proj_type">
+                        <option value="Application" selected="">Application</option>
+                        <option value="Graphic Art">Graphic Art</option>
+                        <option value="Logo">Logo</option>
+                    </select>
+                </div> 
+            </div>
+    
+            <div class="form-group">
+                <label for="id_proj_img">Image/s:</label>
+                <select class="form-control" name="proj_img" id="id_proj_img" multiple="">
+                    <option value="11">proj_images/uwp2609225.jpeg</option>
+                    <option value="12">proj_images/Photos-Desktop-Palm-Tree-HD-Wallpapers.jpg</option>
+                    <option value="13">proj_images/no-uturn.png</option>
+                    <option value="14">proj_images/sample1_3Gocp5j.jpg</option>
+                    <option value="15">proj_images/sample2_JFAJZuS.jpg</option>
+                    <option value="16">proj_images/gantt-chart-template-stacked-bar-chart.png</option>
+                    <option value="17">proj_images/22222.PNG</option>
+                </select>        
+            </div>
+
+            <div class="form-group">
+                <label for="id_proj_lang">Languages:</label>
+                <select class="form-control" name="proj_lang" id="id_proj_lang" multiple="">
+                    <option value="1">HTML</option>
+                    <option value="2">JavaScript</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label for="id_proj_desc">Description:</label>
+                <textarea class="form-control" name="proj_desc" rows="5" required="" id="id_proj_desc"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="id_proj_url">URL:</label>
+                <input type="url" class="form-control" name="proj_url" maxlength="255" id="id_proj_url">
+            </div>
+        </section>
+
+        <section id="button">
+                <input type="submit" name="Save Data" value="Save Data" class="btn btn-primary ">
+            </form>
+        </section>
+            <!-- <input type="submit" name="Save Data" value="Save Data" class="btn">
+        </form> -->
     </div>
 
 {% endblock content %}
